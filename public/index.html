@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: content-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        padding: 15px;
+        max-width: 1100px;
+      }
+
+      input {
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: 1px solid grey;
+        margin-bottom: 10px;
+        width: 300px;
+      }
+
+      button {
+        cursor: pointer;
+        transition: background 0.2s;
+        background-color: rgb(216, 216, 216);
+        width: 100px;
+      }
+
+      button:hover {
+        background: rgba(216, 216, 216, 0.2);
+      }
+
+      button#send {
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: 1px solid grey;
+      }
+
+      button#send-to-self {
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: 1px solid grey;
+        margin-bottom: 10px;
+      }
+
+      #self-address {
+        font-size: small;
+        font-weight: bold;
+        margin: 10px 0px;
+        font-style: italic;
+        overflow-wrap: break-word;
+      }
+
+      #messages-container {
+      }
+
+      #messages-container h3 {
+        margin: 0;
+      }
+
+      #messages {
+        margin: 10px 0px;
+        list-style: none;
+        padding-inline-start: 10;
+      }
+
+      #messages li {
+        max-width: 200px;
+        padding: 15px;
+        border-radius: 15px;
+        border: 1px solid #a7a7a7;
+        border-top-left-radius: 0;
+        font-size: small;
+        margin-bottom: 5px;
+        overflow-wrap: break-word;
+      }
+
+      hr {
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+
+      #status-chip {
+        position: fixed;
+        top: -25px;
+        right: 15px;
+        background-color: rgb(255, 0, 0);
+        padding: 5px 10px;
+        border-radius: 25px;
+        font-size: small;
+        color: white;
+        font-weight: bold;
+        transition: top 0.2s;
+      }
+
+      #status-chip.show {
+        top: 15px;
+      }
+
+      #status-chip.connected {
+        background-color: rgb(78, 194, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <div>My address:</div>
+    <div id="self-address"></div>
+    <hr />
+    <div>
+      <input id="recipient" placeholder="To" autocomplete="off" />
+      <button id="send-to-self">Send to me</button>
+    </div>
+
+    <div>
+      <input id="input" placeholder="Type message here" autocomplete="off" />
+      <button id="send">Send message</button>
+    </div>
+    <hr />
+    <div id="messages-container">
+      <h3>Messages</h3>
+      <ul id="messages"></ul>
+    </div>
+    <div id="status-chip" class="show">Disconnected</div>
+    <script src="../dist/bundle.js"></script>
+  </body>
+</html>
+<!DOCTYPE html>
